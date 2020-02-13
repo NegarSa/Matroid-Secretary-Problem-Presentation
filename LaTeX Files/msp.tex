@@ -1,0 +1,76 @@
+\section{Matroid Secretary Problem}
+
+\subsection{Matroids}
+\begin{frame}{Definition}
+\uncover<+->{A matroid $M =(S, \mathcal{I})$ is a finite ground set $S$ together with a collection of sets $\mathcal{I} \subseteq 2^S$, known as the independent sets, satisfying the following axioms:}
+\begin{itemize}
+\uncover<+->{\item If $I \in \mathcal{I}$ and $J \subseteq I$ then $J \in \mathcal{I}$.}
+\uncover<+->{\item If $I, J \in \mathcal{I}$ and $|J| > |I|$, then there exists an element $z \in J \backslash I$ such that $I \cup \{z\} \in \mathcal{I}$.}
+\end{itemize}
+
+ \uncover<+->{The rank of a matroid is the maximum size of an independent set in the matroid.}
+\end{frame}
+
+\begin{frame}{Examples}
+\begin{itemize}
+\uncover<+->{\item \textbf{Uniform Matroids:} For any ground set S and a specific $k$, let $I \in \mathcal{I}$ if $|I| \leq k$. Denote this matroid $U^k_S$}
+
+\uncover<+->{\item \textbf{Graphic Matroids:}
+For an undirected graph $G = (V, E)$, let the ground set S be the set E of edges of the graph.
+The matroid $M(G)$, sometimes called the cycle matroid of G, is defined as $M(G) = (E, \mathcal{I})$ where $\mathcal{I} = \{F \subseteq E\ |\ F\ \text{is acyclic}\}$.
+}
+
+\end{itemize}
+\end{frame}
+\subsection{Problem Definition}
+\begin{frame}{Problem Formulation}
+\uncover<+->{\begin{block}{Definition}
+There is a matroid $(S; \mathcal{I})$, and a weight function assigning $w(i)$ to each element $i \in S$. We wish to design an algorithm which given the matroid structure (but not the weights $w(i)$) selects online an independent set of maximal weight. 
+\end{block}}
+\begin{itemize}
+\uncover<+->{\item The ground set of the matroid is presented in random order. }
+\uncover<+->{\item When an element $i$ arrives, we learn the weight $w(i)$.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Models}
+\begin{itemize}
+\uncover<+->{\item \textbf{Full Information model}: Chosen i.i.d. from a known distribution.}
+\item \textbf{Partial Information model}: Chosen i.i.d. from an unknown distribution.
+\item \textbf{Random Assignment model}: Adversary chooses weights, assigned using a uniform random one-to-one correspondence.
+\\
+\uncover<+->{For general matroids, a $c-$competitive algorithm exists.}
+\item \textbf{Zero information model}: Adversary assigns.\\
+\uncover<+->{For general matroids, a $(log\ r)-$competitive algorithm exists. \cite{msp}}
+\end{itemize}
+\end{frame}
+
+\subsection{Applications}
+\begin{frame}{General Framework}
+\begin{itemize}
+
+\uncover<+->{\item \textbf{Standard Version}: Set U to the set of all candidates, $\mathcal{I}$ to all the singleton sets and the empty set.}
+\uncover<+->{\item \textbf{Multiple Choice Secretary Problem  version}: Set the matroid to $U^k_S$ for at most $k$ choices.}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Domains}
+\begin{itemize}
+\uncover<+->{\item \textbf{Unit-Demand Domain:} There are $n$ agents, and
+a set M of items. Each agent $i$ has a set of desired items. An outcome is one-to-one matching of agents to items.}
+\uncover<+->{\item \textbf{Graphical Matroids}}
+\uncover<+->{\item \textbf{Gammoids:} Agents are sources in a graph, all  want to go to a common sink. A set $S$ of sources is independent if there exist vertex-disjoint paths routing each source to the sink.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Conjecture}
+\begin{center}
+\begin{large}
+\textbf{The matroid secretary conjecture}:\\ 
+Every matroid secretary problem admits an online algorithm that achieves a constant approximation.\cite{msp}
+\end{large}\\
+{\small Best general result right now is $O(\log \log k)$}
+\end{center}
+
+\end{frame}

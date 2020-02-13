@@ -1,0 +1,32 @@
+\section{Introduction}
+    
+    \begin{frame}{Online Algorithms}
+        
+        	\begin{block}{Definition}
+			An online algorithm is one that can process its input piece-by-piece in a serial fashion, without having the entire input available from the start. 
+			\end{block}
+        
+        \vspace{8pt}
+        \begin{itemize}
+        	\item Need instant response, may later turn out not to be optimal
+        	\item How to analyze them?
+        	
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Analysis}
+       \uncover<+->{Competitive Analysis: 
+        \begin{itemize}
+        	\item Input sequence: $\sigma$
+        	\item Full knowledge optimum: $OPT_{\sigma}$\\
+        	Best result of offline algorithm.
+        	\item Online Algorithm cost: $ALG_{\sigma}$
+        	\item The online algorithm is k-competitive if:
+        	\[\forall \sigma \:\:\: ALG_{\sigma} \leq k\,OPT_{\sigma}\]
+        \end{itemize}}
+       \uncover<+->{Probabilistic Analysis:
+       \begin{itemize}
+        	\item Maximize probability of finding optimum solution
+       \end{itemize}}
+    \end{frame}
+    
